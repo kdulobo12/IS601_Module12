@@ -124,8 +124,32 @@ Pushes image to Docker Hub
 ## 📸 Screenshots
 
 ✅ GitHub Actions workflow success
+
+<img width="3354" height="1516" alt="image" src="https://github.com/user-attachments/assets/fb7d4408-3993-424e-a93f-88ce59f935aa" />
+
 ✅ API working in browser (/docs)
+
+<img width="1680" height="1050" alt="Screenshot 2026-04-29 at 00 38 15" src="https://github.com/user-attachments/assets/b5fd2d85-13c9-4923-bbed-e345645cb4a0" />
+
 ✅ User register/login working
+
+<img width="1680" height="1050" alt="Screenshot 2026-04-29 at 00 49 21" src="https://github.com/user-attachments/assets/033daa60-fce3-4fc3-a35e-2789f452c6cf" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2026-04-29 at 00 49 27" src="https://github.com/user-attachments/assets/3ab8965b-50ee-4e8d-ba9c-07c2b5a7e9d0" />
+
+<img width="1680" height="1050" alt="Screenshot 2026-04-29 at 00 49 33" src="https://github.com/user-attachments/assets/cd8406d6-2ba4-4140-b14f-c43add337776" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2026-04-29 at 00 51 31" src="https://github.com/user-attachments/assets/1eca64b6-66e5-4f0c-accd-5338f3e4c3f3" />
+
+
+<img width="1680" height="1050" alt="Screenshot 2026-04-29 at 00 51 37" src="https://github.com/user-attachments/assets/ac34568d-b4e7-44f8-bc79-24af02fb9aa4" />
+
+<img width="1680" height="1050" alt="Screenshot 2026-04-29 at 00 51 42" src="https://github.com/user-attachments/assets/1b08489b-81e5-4e6c-8a5d-666863a5160f" />
+
+
+
 ✅ Calculation endpoints working
 
 ## 💡 Reflection 
