@@ -1,99 +1,145 @@
+📦 Module 12: User Authentication + Calculation BREAD + Integration Testing + CI/CD
+## 📌 Project Overview
+This project implements a backend system using FastAPI and PostgreSQL that supports:
+User registration and login
+Secure password handling (hashing)
+Full BREAD (Browse, Read, Edit, Add, Delete) functionality for calculations
+Integration testing using pytest
+Docker containerization and GitHub Actions CI/CD pipeline
+Users can:
+Register and log in
+Create and manage their own calculations
+Perform CRUD operations through REST APIs
 
-This project extends a FastAPI-based calculator application by implementing a Calculation model using SQLAlchemy, robust validation using Pydantic schemas, and a complete
+## 🧩 Features Implemented
+## 🔐 User Authentication (Backend)
+POST /users/register → Register a new user
+POST /users/login → Authenticate user
+✔ Passwords are securely hashed before storing
+✔ Duplicate users are prevented
+✔ Pydantic validation ensures correct input format
+✔ Login verifies hashed password before granting access
 
-CI/CD pipeline.
+## 🧮 Calculation Endpoints (BREAD)
+GET /calculations → Browse all calculations
+GET /calculations/{id} → Read a specific calculation
+POST /calculations → Add a new calculation
+PUT/PATCH /calculations/{id} → Edit a calculation
+DELETE /calculations/{id} → Delete a calculation
+✔ Uses SQLAlchemy models
+✔ Uses Pydantic schemas (CalculationCreate, CalculationRead)
+✔ Proper request/response validation
 
-The application integrates PostgreSQL for persistence, uses a factory pattern for calculation logic, and includes unit and integration tests. Docker is used for containerization, and GitHub Actions automates testing and deployment to Docker Hub.
+## 🌐 OpenAPI Testing (Manual)
+You can test all endpoints using FastAPI’s built-in UI:
+Swagger Docs → http://localhost:8000/docs
+ReDoc → http://localhost:8000/redoc
+✔ Test user registration and login
+✔ Test all calculation endpoints manually
+✔ Verify request/response formats
+🧪 Integration Testing (pytest)
 
-This module focuses on backend modeling, validation, and CI/CD automation.
+## ✅ User Tests
+Register new user
+Login with correct credentials
+Verify user stored in database
 
-⚙️ Features
+## ✅ Calculation Tests
+Create calculation
+Retrieve calculation
+Update calculation
+Delete calculation
 
-FastAPI calculator backend
-SQLAlchemy Calculation model
-Pydantic schema validation
-Factory pattern for operations (Add, Subtract, Multiply, Divide)
-PostgreSQL database integration
-Unit and integration testing
-Dockerized application
-GitHub Actions CI/CD pipeline
-Docker Hub image deployment
-🧮 Calculation Model
+## ❌ Negative Tests
+Invalid input → returns error
+Unauthorized access (if implemented)
+Wrong data types → validation error
+✔ Tests ensure full backend functionality
+✔ Uses test database setup
 
-The Calculation model includes:
+## 🐳 DevOps (CI/CD)
+Docker used for containerization
+GitHub Actions pipeline automatically:
+✔ Spins up PostgreSQL database
+✔ Runs all pytest integration tests
+✔ Builds Docker image
+✔ Pushes image to Docker Hub
 
-id (Primary Key)
-a (First operand)
-b (Second operand)
-type (Operation type: Add, Sub, Multiply, Divide)
-result (Optional stored result)
-🧠 Factory Pattern
+## 🛠️ Tech Stack
+Python (FastAPI)
+PostgreSQL
+SQLAlchemy
+Pydantic
+pytest
+Docker
+GitHub Actions
 
-A factory pattern is used to handle different calculation types:
+## 🚀 Setup Instructions
 
-Add
-Subtract
-Multiply
-Divide
-This improves scalability and keeps logic clean and modular.
+🧩 1. Clone Repository
+git clone <your-repo-link>
+cd <repo-folder>
 
-🔐 Validation (Pydantic)
+## 🧩 2. Create Virtual Environment
+python3 -m venv venv
+source venv/bin/activate  # Mac
+venv\Scripts\activate     # Windows
 
-CalculationCreate
+## 🧩 3. Install Dependencies
+pip install -r requirements.txt
 
-Accepts: a, b, type
-Validates:
-Operation type must be valid
-Division by zero is prevented
-CalculationRead
+## 🧩 4. Run Backend
+uvicorn app.main:app --reload
+Open:
+API Docs → http://localhost:8000/docs
 
-Returns:
-id, a, b, type, result
-📦 Project Structure
+## 🧪 Running Tests
+Run pytest:
+pytest
+✔ Runs all user + calculation integration tests
+✔ Ensures endpoints work correctly
 
-. ├── app/ │ ├── models/ │ │ └── calculation.py │ ├── schemas/ │ │ └── calculation.py │ ├── operations/ │ │ └── factory.py │ ├── database.py │ └── main.py ├── tests/ │ ├── unit/ │ ├── integration/ │ └── e2e/ ├── docker-compose.yml ├── Dockerfile ├── requirements.txt ├── README.md └── Reflection.md
+## 🐳 Docker Setup
+Run with Docker
+docker compose up --build
+Build Image
+docker build -t module12-app .
+Run Container
+docker run -p 8000:8000 module12-app
 
-🧪 Testing
+## 🔄 CI/CD Pipeline
+GitHub Actions automatically:
+Runs integration tests
+Builds Docker image
+Pushes image to Docker Hub
 
-Test Types
+## 🐳 Docker Hub Repository
+👉 Add your link here: https://hub.docker.com/r/kdulobo12/module12-web
 
-Unit Tests
+👉 Docker Image Link: docker push kdulobo12/module12-web:tagname
 
-Validate each operation type
-Test factory pattern logic
-Test schema validation
-Integration Tests
+![alt text](<Screenshot 2026-04-29 at 00.22.11-1.png>)
 
-Database insertions
-Data correctness verification
-Error handling (invalid inputs)
-📊 Coverage
 
-High test coverage across models and validation
-Tests run automatically in CI pipeline
-🐳 Running the Project Locally
+## 📸 Screenshots
 
-Step 1: Clone Repo
+✅ GitHub Actions workflow success
+✅ API working in browser (/docs)
+✅ User register/login working
+✅ Calculation endpoints working
 
-git clone https://github.com/kdulobo12/IS601_Module11 cd IS601_Module11 Step 2: Setup Virtual Environment python3 -m venv venv source venv/bin/activate pip install -r requirements.txt Step 3: Run with Docker docker compose down -v docker compose up --build Step 4: Access Application FastAPI App → http://localhost:8000 Swagger Docs → http://localhost:8000/docs pgAdmin → http://localhost:5050
+## 💡 Reflection 
+This project helped me understand how backend systems work in a real-world application. I implemented user registration and login with secure password hashing, which showed me the importance of security in APIs. I also built full BREAD functionality for calculations, which helped me understand how CRUD operations work with databases using SQLAlchemy.
+Writing integration tests using pytest was very useful because it allowed me to test the application as a whole instead of testing individual functions. I also learned how GitHub Actions can automate testing and deployment, which is important for real-world development workflows.
+One challenge I faced was connecting all parts together, including models, schemas, routes, and tests. However, after debugging and testing step by step, I was able to complete the backend successfully. Overall, this project improved my understanding of APIs, databases, testing, and DevOps practices.
 
-🧪 Run Tests
+## 🔥 Quick Commands Cheat Sheet
+Action	Command
+Run backend	uvicorn app.main:app --reload
+Run tests	pytest
+Docker run	docker compose up --build
+Build image	docker build -t module12-app .
+Push code	git add . && git commit -m "msg" && git push
 
-pytest With coverage: pytest --cov=app --cov-report=html Open: htmlcov/index.html
-
-🔄 CI/CD Pipeline
-
-GitHub Actions workflow performs: Install dependencies Run unit + integration tests Build Docker image Run security scan (Trivy) Push image to Docker Hub
-
-🐳 Docker Hub Repository
-
-👉 Docker Image Link: https://hub.docker.com/r/kdulobo12/is601_module11
-
-📸 Screenshots
-
-✅ GitHub Actions Success image
-
-✅ Docker Hub Image alt text
-
-Link: https://hub.docker.com/r/kdulobo12/is601_module11
-
+## 👩‍💻 Author
+Krupa Dulobo
